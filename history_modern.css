@@ -1,0 +1,184 @@
+/* 基本的なスタイルリセット */
+body, h1, h2, h3, h4, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    line-height: 1.7;
+    background-color: #2c3e50; /* 濃い背景色 */
+    color: #333;
+}
+
+/* スクロールを滑らかにする */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ヘッダー */
+header {
+    background-color: #1a1a1a; 
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+/* ヘッダーの見出しサイズ調整 (任意) */
+header h1 {
+    font-size: 1.8em;
+}
+
+/* メインコンテンツのコンテナ */
+main {
+    max-width: 900px; /* 3列用に調整 */
+    margin: 30px auto; 
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.content-block {
+    text-align: center;
+}
+
+h2 {
+    border-bottom: 3px solid #0056b3;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+p {
+    margin-bottom: 25px;
+    font-size: 1.1em;
+}
+
+/* --- ナビゲーションボタン（3列グリッド） --- */
+.theme-navigation {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3列 */
+    gap: 25px; /* ボタン間のすき間 */
+    margin-top: 20px;
+}
+
+.nav-button {
+    display: block;
+    padding: 25px;
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.25s ease-out; /* アニメーションを滑らかに */
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+}
+
+.nav-button h3 {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.nav-button p {
+    font-size: 1em;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+/* --- ★★★ ここからホバーエフェクト ★★★ --- */
+
+/* ★ 1. テーマ別 */
+.theme-button {
+    background: linear-gradient(135deg, #fff 0%, #eef7ff 100%);
+    border-color: #007bff;
+}
+.theme-button h3 { color: #0056b3; }
+.theme-button:hover {
+    /* ★ 色を変更 */
+    background: linear-gradient(135deg, #fff 0%, #dcf0ff 100%); /* 水色を少し濃く */
+    border-color: #0056b3; /* 青を濃く */
+    /* ★ 浮かび上がる */
+    transform: translateY(-5px) scale(1.05) rotate(1deg); 
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25); 
+    z-index: 10;
+}
+
+/* ★ 2. 地図 */
+#maps-button {
+    background-color: #fffaf0;
+    border-color: #ffc107;
+}
+#maps-button h3 { color: #c79100; }
+#maps-button:hover {
+    /* ★ 色を変更 */
+    background: linear-gradient(135deg, #fff 0%, #fff5e0 100%); /* 黄色を少し濃く */
+    border-color: #b38600; /* 黄土色を濃く */
+    /* ★ 浮かび上がる */
+    transform: translateY(-5px) scale(1.05) rotate(-1deg); 
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+    z-index: 10;
+}
+
+/* ★ 3. 年表 */
+#timelines-menu-button {
+    background-color: #f0fff0;
+    border-color: #28a745;
+}
+#timelines-menu-button h3 { color: #155724; }
+#timelines-menu-button:hover {
+    background: linear-gradient(135deg, #fff 0%, #e6ffe6 100%); /* 緑を少し濃く */
+    border-color: #1e7e34; /* 緑を濃く */
+    transform: translateY(-5px) scale(1.05) rotate(1deg);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+    z-index: 10;
+}
+
+/* ★ 4. 索引 */
+#index-button {
+    background-color: #f8f9fa; 
+    border-color: #6c757d;
+}
+#index-button h3 { color: #343a40; }
+#index-button:hover {
+    background: linear-gradient(135deg, #fff 0%, #f0f1f2 100%); /* グレーを少し濃く */
+    border-color: #495057; /* グレーを濃く */
+    transform: translateY(-5px) scale(1.05) rotate(-1deg); 
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+    z-index: 10;
+}
+
+
+/* ★ 5. 総合問題 */
+#comprehensive-button {
+    background-color: #fff5f5;
+    border-color: #d9534f;
+}
+#comprehensive-button h3 { color: #a94442; }
+#comprehensive-button:hover {
+    background: linear-gradient(135deg, #fff 0%, #ffebec 100%); /* 赤を少し濃く */
+    border-color: #9a3b38; /* 赤を濃く */
+    transform: translateY(-5px) scale(1.05) rotate(1deg); 
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+    z-index: 10;
+}
+/* トップページへ戻る (パンくずリスト風) */
+.breadcrumb-nav {
+    padding: 0 10px 15px 10px; /* main の余白に合わせる */
+    text-align: left;
+}
+
+.breadcrumb-nav a {
+    text-decoration: none;
+    color: #333; /* 背景が白なので濃い色に */
+    font-weight: bold;
+    font-size: 1em;
+    transition: color 0.2s;
+}
+
+.breadcrumb-nav a:hover {
+    color: #0056b3; /* ホバー時に青色に */
+    text-decoration: underline;
+}

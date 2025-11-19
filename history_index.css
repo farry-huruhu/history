@@ -1,0 +1,224 @@
+/* 基本的なスタイルリセット */
+body, h1, h2, h3, p, ul, dl, dt, dd {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    line-height: 1.7;
+    
+    /* ★ トップページと同じ背景グラデーション */
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #2c3e50 100%);
+    background-attachment: fixed; /* 背景を固定 */
+    
+    color: #fff; /* ★ 基本の文字色を白に変更 */
+}
+
+/* スクロールを滑らかにする */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ヘッダー (ガラス風) */
+header {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+header h1 {
+    font-size: 1.8em;
+}
+
+/* メインコンテンツのコンテナ (ガラス風) */
+main {
+    max-width: 800px; 
+    margin: 20px auto; 
+    padding: 20px;
+
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    border-bottom: 3px solid rgba(255, 255, 255, 0.5); /* ★ 白系の線 */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+p {
+    margin-bottom: 15px;
+    color: #e0e0e0; /* ★ 少し薄い白 */
+}
+hr {
+    border: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2); /* ★ 白系の線 */
+    margin: 30px 0;
+}
+
+/* --- 五十音ジャンプナビゲーション (ガラス風) --- */
+.index-jump-nav {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px; 
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.index-jump-nav a {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background-color 0.2s, border-color 0.2s;
+    
+    /* ★ ガラススタイル */
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.index-jump-nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* --- 索引リスト (アコーディオン形式) --- */
+.index-list h3 {
+    /* h3 自体のスタイルをリセット */
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-top: 10px; 
+    margin-bottom: 0;
+    font-size: 1em; 
+    color: inherit; 
+}
+
+/* アコーディオンのボタン本体 (ガラス風) */
+.accordion-toggle {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 5px;
+    text-align: left;
+    font-size: 1.4em; 
+    font-weight: bold;
+    cursor: pointer;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s;
+    
+    /* ★ ガラススタイル */
+    background: rgba(255, 255, 255, 0.15); /* ジャンプナビより少し目立たせる */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff; 
+}
+.accordion-toggle:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* 矢印 */
+.accordion-arrow {
+    font-size: 0.8em;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+/* ★アクティブ（開いた）時の矢印 */
+.accordion-toggle.active .accordion-arrow {
+    transform: rotate(180deg); 
+    color: #ff8a8a; /* ★ 明るい赤に変更 */
+}
+
+/* 用語リスト本体（dl）を囲むdiv (ガラス風) */
+.index-content {
+    display: none; 
+    padding: 20px;
+    border-top: none; 
+    border-radius: 0 0 5px 5px;
+    margin-bottom: 10px;
+
+    /* ★ ガラススタイル */
+    background: rgba(0, 0, 0, 0.1); /* 少し暗めのガラス */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    /* ★ スクロール機能 */
+    max-height: 300px; 
+    overflow-y: auto; 
+}
+
+.index-content dl {
+    margin-bottom: 0;
+}
+
+/* --- (以下は用語リストの中身のスタイル) --- */
+
+/* 用語 */
+.index-list dt {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #ffffff; /* ★ 文字色を白に */
+}
+
+/* ページリンクのリスト */
+.index-list dd {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+.index-list dd ul {
+    list-style-type: none;
+}
+.index-list dd li {
+    display: inline-block; 
+    margin-right: 15px;
+}
+.index-list dd a {
+    text-decoration: none;
+    color: #a0d0ff; /* ★ 明るい青 */
+    font-weight: bold;
+}
+.index-list dd a:hover {
+    text-decoration: underline;
+    color: #ffffff; /* ★ ホバーで白に */
+}
+
+/* --- ホームに戻るボタン (変更なし・目立つように) --- */
+#back-to-home-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: block;
+    width: 70px;
+    height: 70px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.3;
+    padding-top: 15px;
+    box-sizing: border-box;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+#back-to-home-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}

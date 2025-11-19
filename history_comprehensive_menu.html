@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>総合問題 メニュー</title>
+    <link rel="stylesheet" href="history_comprehensive_menu.css">
+</head>
+<body>
+
+    <header>
+        <h1>【世界史/日本史】総合問題 メニュー</h1>
+    </header>
+
+    <main>
+        <nav class="breadcrumb-nav">
+            <a href="history_modern.html">🏠 近代ホームへ戻る</a>
+        </nav>
+
+        <section class="content-block">
+            <h2>総合問題 メニュー</h2>
+            <p>出題形式を選択してください。</p>
+            
+            <div class="menu-container">
+                <a href="history_comprehensive_quiz.html" class="nav-button" id="random-quiz-btn">
+                    <h3>🎓 ランダム出題</h3>
+                    <p>すべての問題からランダムに20問出題されます。</p>
+                </a>
+
+                <a href="history_comprehensive_review.html" class="nav-button" id="review-quiz-btn">
+                    <h3>✍️ 復習問題</h3>
+                    <p>前回までに間違えた問題だけが出題されます。</p>
+                    <span id="review-count-display">（0問）</span>
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+    <a href="history_modern.html" id="back-to-home-btn">🏠<br>近代ホームへ</a>
+
+    <script src="history_comprehensive_menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>総合問題 (ランダム出題)</title>
+    <link rel="stylesheet" href="history_comprehensive_quiz.css">
+</head>
+<body>
+
+    <header>
+        <h1>【世界史/日本史】総合問題 (ランダム出題)</h1>
+    </header>
+
+    <main>
+        <nav class="breadcrumb-nav">
+            <a href="history_modern.html">🏠 近代ホームへ戻る</a>
+            <span>/</span>
+            <a href="history_comprehensive_menu.html">⏪ 総合問題メニューへ戻る</a>
+        </nav>
+        <section class="content-block">
+            <h2>ランダム出題 (全20問)</h2>
+            <p>問題文を読み、解答欄に答えを正確に入力してください。（複数の答えがある場合はカンマ(,)で区切ってください）</p>
+            
+            <div class="quiz-actions">
+                <button id="check-answers-btn" class="action-btn positive">答え合わせ</button>
+                <button id="reload-quiz-btn" class="action-btn">再挑戦 (リロード)</button>
+                <button id="reset-inputs-btn" class="action-btn negative">入力リセット</button>
+                <button id="fix-quiz-btn" class="action-btn">この問題を固定化</button>
+            </div>
+            <div id="results-area"></div>
+
+            <div id="quiz-container">
+                </div>
+            <div class="quiz-actions-secondary">
+                <button id="show-answers-btn" class="action-btn" disabled>（すべての）答えを表示する</button>
+                <button id="show-partial-btn" class="action-btn" disabled>一部の答えを表示する</button>
+            </div>
+        </section>
+    </main>
+
+    <a href="history_comprehensive_menu.html" id="back-to-menu-float-btn">⏪<br>メニューへ</a>
+
+    <div id="modal-backdrop"></div>
+    <div id="modal-content">
+        <h3>答えを表示する問題番号を選択</h3>
+        <div id="modal-checkboxes-container">
+            </div>
+        <div class="modal-buttons">
+            <button id="modal-confirm-btn" class="positive">選択した答えを表示</button>
+            <button id="modal-cancel-btn" class="negative">キャンセル</button>
+        </div>
+    </div>
+    <script src="history_comprehensive_quiz.js"></script>
+</body>
+</html>
