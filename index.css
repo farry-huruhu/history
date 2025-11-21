@@ -173,3 +173,46 @@ h2 {
         top: 0px;
     }
 }
+.game-link-container-header {
+    text-align: center;
+    margin-top: 15px;
+    padding-bottom: 10px;
+}
+
+.nav-button-header {
+    display: inline-block;
+    padding: 12px 28px; /* サイズ調整 */
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
+
+    /* --- ↓↓↓ ここからが「ガラス」のコマンド ↓↓↓ --- */
+
+    /* 1. 背景: 半透明の白 */
+    background: rgba(255, 255, 255, 0.1);
+
+    /* 2. ぼかし: これが「すりガラス」の核です */
+    backdrop-filter: blur(10px);
+    /* (↓ Safari/Chrome用の互換性コード) */
+    -webkit-backdrop-filter: blur(10px); 
+
+    /* 3. 形状: 角丸 */
+    border-radius: 15px;
+
+    /* 4. 縁取り: 光沢を出すためのうっすら白い線 */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    /* 5. 影: 浮いているように見せる */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+    /* 6. 文字色: 白（暗い背景で見えるように） */
+    color: #ffffff;
+}
+
+/* マウスを乗せた時の動作 */
+.nav-button-header:hover {
+    background: rgba(255, 255, 255, 0.2); /* 少し濃くする */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+/* ★★★ CSS置き換えここまで ★★★ */
