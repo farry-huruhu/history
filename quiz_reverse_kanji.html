@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>国一文字ゲーム (10問)</title>
+    <title>逆・国一文字ゲーム (10問)</title>
     
-    <link rel="stylesheet" href="quiz_kanji.css">
+    <link rel="stylesheet" href="quiz_reverse_kanji.css">
 </head>
 <body>
 
     <a href="home_kanji.html" id="back-to-home-float-btn">🏠<br>ホームへ</a>
 
     <header>
-        <h1>国一文字ゲーム (10問)</h1>
+        <h1>逆・国一文字ゲーム (10問)</h1>
     </header>
 
     <main>
@@ -22,12 +22,12 @@
         </div>
 
         <div id="question-container">
-            <span id="question-label">この漢字が表す国名は？</span>
-            <div id="question">（漢字）</div>
+            <span id="question-label">この国を漢字一文字で表すと？</span>
+            <div id="question">（国名）</div>
         </div>
 
         <div id="input-container">
-            <input type="text" id="answer-input" placeholder="国名をカタカナ（漢字）で入力" maxlength="20">
+            <input type="text" id="answer-input" placeholder="漢字一文字を入力" maxlength="1">
             
             <button id="check-btn" class="btn">判定！</button>
         </div>
@@ -36,6 +36,6 @@
             </div>
     </main>
 
-    <script src="quiz_kanji.js"></script>
+    <script src="quiz_reverse_kanji.js"></script>
 </body>
 </html>

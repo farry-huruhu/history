@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ミックス・国一文字ゲーム</title>
+    <link rel="stylesheet" href="quiz_mix_kanji.css">
+</head>
+<body>
+    <a href="home_index.html" id="back-to-home-float-btn">🏠<br>ホームへ</a>
+    <header>
+        <h1>ミックス・国一文字ゲーム (20問)</h1>
+    </header>
+    <main>
+        <div id="score-container">
+            正解: <span id="correct-score">0</span> / 
+            不正解: <span id="incorrect-score">0</span>
+        </div>
+        <div id="question-container">
+            <span id="question-label">（問題）</span>
+            <div id="question">（国名）</div>
+        </div>
+        <div id="input-container">
+            <input type="text" id="answer-input" placeholder="答えを入力">
+            <button id="check-btn" class="btn">判定！</button>
+        </div>
+        <div id="result-container"></div>
+    </main>
+    <script src="quiz_mix_kanji.js"></script>
+</body>
+</html>
