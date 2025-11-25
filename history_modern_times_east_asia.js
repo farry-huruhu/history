@@ -20,16 +20,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // (1) 正解の答えを配列で定義
-    // 複数の答えを許可する場合は、カンマ区切りの文字列で定義
     const correctAnswers = [
         "大久保利通", // q1
         "台湾出兵",   // q2
         "日朝修好条規", // q3
-        "壬午軍乱",   // q4
-        "甲申事変",   // q5
-        "フランス",   // q6
-        "天津条約",   // q7
-        "フランス領インドシナ連邦,フランス領インドシナ" // q8 (略称もOKにする例)
+        "壬午軍乱", // q4
+        "甲申事変", // q5
+        "フランス,仏", // q6 (★カンマ区切りで別解を追加)
+        "天津条約", // q7
+        "フランス領インドシナ", // q8
     ];
 
     // (2) 必要なHTML要素を取得
@@ -40,31 +39,40 @@ document.addEventListener('DOMContentLoaded', function() {
     const resetInputsButton = document.getElementById('reset-inputs-btn');
 
     // (3) ボタンがクリックされたときの動作を定義
-    checkButton.addEventListener('click', function() {
-        
-        let correctCount = 0; // 正解数をカウントする変数
-
-        // (4) 各入力ボックスをチェック
-        quizInputs.forEach((input, index) => {
-            const userAnswer = input.value.trim(); // 入力値の前後にある空白を削除
-            const answers = correctAnswers[index].split(','); // 複数の正解を配列に分割
+    
+    // (A) 答え合わせボタン
+    if (checkButton) {
+        checkButton.addEventListener('click', function() {
             
-            // ユーザーの答えが、正解リストのどれか一つと一致するかチェック
-            if (answers.includes(userAnswer)) {
-                // 正解の場合
-                input.classList.remove('incorrect');
-                input.classList.add('correct');
-                correctCount++;
-            } else {
-                // 不正解の場合
-                input.classList.remove('correct');
-                input.classList.add('incorrect');
-            }
-        });
+            let correctCount = 0; // 正解数をカウントする変数
 
-        // (5) 結果を表示エリアに表示
-        resultsArea.textContent = `結果：${quizInputs.length}問中、${correctCount}問正解です。`;
-    });
+            // (4) 各入力ボックスをチェック
+            quizInputs.forEach((input, index) => {
+                // index が correctAnswers の範囲内かチェック
+                if (index < correctAnswers.length) {  
+                    const userAnswer = input.value.trim(); // 入力値の前後にある空白を削除
+                    const answers = correctAnswers[index].split(','); // 複数の正解を配列に分割
+
+                    // ユーザーの答えが、正解リストのどれか一つと一致するかチェック
+                    if (answers.includes(userAnswer)) {
+                        // 正解の場合
+                        input.classList.remove('incorrect');
+                        input.classList.add('correct');
+                        correctCount++;
+                    } else {
+                        // 不正解の場合
+                        input.classList.remove('correct');
+                        input.classList.add('incorrect');
+                    }
+                }
+            });
+
+            // (5) 結果を表示エリアに表示
+            resultsArea.textContent = `結果：${correctAnswers.length}問中、${correctCount}問正解です。`;
+        });
+    }
+
+    // (B) 答え表示ボタン
     if (showAnswersButton) {
         showAnswersButton.addEventListener('click', function() {
             // 確認ダイアログを表示
@@ -87,6 +95,8 @@ document.addEventListener('DOMContentLoaded', function() {
             resultsArea.textContent = 'すべての答えを表示しました。';
         });
     }
+
+    // (C) リセットボタン
     if (resetInputsButton) {
         resetInputsButton.addEventListener('click', function() {
             // 確認ダイアログを表示
