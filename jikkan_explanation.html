@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>西暦と十干の対応表</title>
+    <link rel="stylesheet" href="jikkan_explanation.css">
+</head>
+<body>
+
+    <main>
+        <h1>西暦の下1桁と十干の対応表</h1>
+        
+        <p>
+            十干（じっかん）は、西暦の下一桁の数字と常に対応しています。<br>
+            （例：1868年の下1桁は「8」なので「戊」、1911年の下1桁は「1」なので「辛」です）
+        </p>
+
+        <table class="eto-table">
+            <thead>
+                <tr>
+                    <th>西暦の下1桁</th>
+                    <th>0</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th>8</th>
+                    <th>9</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>十干</strong></td>
+                    <td>
+                        <strong>庚</strong>
+                        <span>(かのえ)</span>
+                    </td>
+                    <td>
+                        <strong>辛</strong>
+                        <span>(かのと)</span>
+                    </td>
+                    <td>
+                        <strong>壬</strong>
+                        <span>(みずのえ)</span>
+                    </td>
+                    <td>
+                        <strong>癸</strong>
+                        <span>(みずのと)</span>
+                    </td>
+                    <td>
+                        <strong>甲</strong>
+                        <span>(きのえ)</span>
+                    </td>
+                    <td>
+                        <strong>乙</strong>
+                        <span>(きのと)</span>
+                    </td>
+                    <td>
+                        <strong>丙</strong>
+                        <span>(ひのえ)</span>
+                    </td>
+                    <td>
+                        <strong>丁</strong>
+                        <span>(ひのと)</span>
+                    </td>
+                    <td>
+                        <strong>戊</strong>
+                        <span>(つちのえ)</span>
+                    </td>
+                    <td>
+                        <strong>己</strong>
+                        <span>(つちのと)</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+        <section class="calculator">
+            <h2>西暦から干支（十干十二支）を計算</h2>
+            <p>好きな西暦（半角数字）を入力すると、その年の干支（十干と十二支）を計算します。</p>
+            
+            <div class="calc-box">
+                <input type="number" id="year-input" placeholder="例: 1980">
+                
+                <button id="calc-button">計算する</button>
+            </div>
+            
+            <p id="result-text"></p>
+        </section>
+        </main>
+    <script src="jikkan_explanation.js"></script>
+    <a href="home_eto.html" id="fixed-back-link" title="ホームに戻る">🏠 ホームに戻る</a>
+</body>
+</html>

@@ -1,0 +1,201 @@
+/* Google Fonts からモダンなフォントを読み込み */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@700&display=swap');
+
+/* --- 1. 全体の設定 (背景はダークモード) --- */
+body {
+    font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.7;
+    
+    /* ★背景はそのまま (ダークなグラデーション) */
+    background: linear-gradient(135deg, #1a1a2e 0%, #2a2a3e 100%);
+    
+    /* (文字色はカード側で指定するので不要に) */
+    
+    /* 中央配置 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* --- 2. メインのカード (★明るく見やすく) --- */
+main {
+    max-width: 900px;
+    width: 100%;
+    margin: 20px;
+    
+    /* ★背景を不透明な「白」に変更 */
+    background: #ffffff;
+    /* ★文字色を「黒」に変更 */
+    color: #333;
+    
+    padding: 30px 40px;
+    border-radius: 12px;
+    /* 浮かび上がる影の効果は維持 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+    /* ★タイトル色を濃い青に変更 */
+    color: #1a2e4a;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1em;
+    margin-bottom: 25px;
+    color: #555; /* 少し薄い黒 */
+}
+
+/* --- 3. 干支の対応表スタイル (★明るい背景用) --- */
+.eto-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    background: #fdfdfd; /* テーブル背景を薄いグレーに */
+    border-radius: 8px;
+    overflow: hidden;
+}
+.eto-table th, .eto-table td {
+    border: 1px solid #ddd; /* 境界線をグレーに */
+    padding: 12px 5px;
+    vertical-align: middle;
+}
+
+/* 表のヘッダー */
+.eto-table thead th {
+    background: #f4f4f4; /* ヘッダー背景 */
+    font-size: 0.9em;
+    padding: 10px 5px;
+    width: 9%;
+    color: #333;
+}
+.eto-table thead th:first-child {
+    width: 10%;
+    font-size: 0.95em;
+}
+
+/* 表の本体 */
+.eto-table tbody td {
+    font-size: 1.2em;
+    line-height: 1.4;
+    font-weight: 700;
+    color: #222;
+}
+.eto-table tbody td:first-child { /* 「十干」セル */
+    background: #f9f9f9;
+    font-size: 1em;
+}
+
+/* 読み仮名 */
+.eto-table td span {
+    display: block;
+    font-size: 0.7em;
+    font-weight: 400;
+    color: #777; /* グレー */
+}
+
+/* --- 4. 計算機能セクション (★明るい背景用) --- */
+.calculator {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #eee; /* 薄い区切り線 */
+}
+.calculator h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 15px;
+}
+.calculator p {
+    font-size: 0.95em;
+    color: #555;
+}
+
+/* 入力とボタンのボックス */
+.calc-box {
+    display: flex;
+    gap: 10px;
+    max-width: 400px;
+    margin: 15px auto 0;
+}
+
+/* 入力欄 */
+#year-input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    font-size: 1.1em;
+    border: 1px solid #ccc; /* グレーの枠線 */
+    border-radius: 6px;
+    background: #fff; /* 背景白 */
+    color: #333; /* 文字黒 */
+    outline: none;
+    transition: all 0.2s;
+}
+#year-input:focus {
+    /* クリックしたら水色に光る */
+    border-color: #87CEEB;
+    box-shadow: 0 0 10px rgba(135, 206, 235, 0.5);
+}
+
+/* 計算ボタン */
+#calc-button {
+    padding: 0 25px;
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #1a1a2e;
+    /* ボタンの色は水色グラデーションのまま */
+    background: linear-gradient(90deg, #87CEEB, #B0E0E6);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+#calc-button:hover {
+    box-shadow: 0 0 15px rgba(135, 206, 235, 0.7);
+    transform: translateY(-2px);
+}
+
+/* 結果表示テキスト */
+#result-text {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #005a9c; /* ★結果を濃い青色に変更 */
+    margin-top: 25px;
+    min-height: 1.5em;
+    /* (影は不要なので削除) */
+}
+#fixed-back-link {
+    /* 1. 位置の固定 */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+
+    /* 2. デザイン (★テキスト用に変更) */
+    display: block;
+    padding: 12px 20px;  /* 内側の余白（幅と高さは自動） */
+    font-size: 16px;       /* テキストのフォントサイズ */
+    font-weight: bold;   /* 太字 */
+    color: white;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 8px;    /* ★角丸の四角形に変更 */
+    
+    /* 3. 影とアニメーション */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+#fixed-back-link:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px) scale(1.02); /* 少し浮き上がる */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
