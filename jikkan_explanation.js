@@ -13,11 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const year = parseInt(yearInput.value, 10);
 
         // 入力が数字でない（NaN）か、空欄の場合はエラーを表示
-        if (isNaN(year)) {
-            resultText.textContent = '有効な西暦（半角数字）を入力してください。';
-            return; // 処理を中断
-        }
-
+        if (isNaN(year) || year <= 0) { // ★ 「|| year <= 0」を追加
+            resultText.textContent = '有効な西暦（半角数字）を入力してください。';
+            return; // 処理を中断
+        }
         // --- 1. 十干（じっかん）の計算 ---
         // (0=庚, 1=辛, 2=壬, 3=癸, 4=甲, 5=乙, 6=丙, 7=丁, 8=戊, 9=己)
         const JIKKAN_LIST = [

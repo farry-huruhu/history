@@ -37,7 +37,7 @@
         {id: 25, theme: "帝国主義と植民地", question: "産業国が余剰資本の投資先を求め、植民地などに輸出したことを何というか？", answers: "資本の輸出" },
         {id: 26, theme: "帝国主義と植民地", question: "自国の力を強めるために、他国や他民族を政治的・経済的・軍事的に支配・抑圧し、領土や勢力を拡大しようとする思想や政策は？", answers: "帝国主義" },
         {id: 27, theme: "帝国主義と植民地", question: "植民地支配を正当化するために利用された、自らの人種の優越性を信じる思想は？", answers: "人種的優越意識" },
-        {id: 28,theme: "帝国主義と植民地", question: "1882年、イギリスが占領したことでアフリカ分割の引き金となった国は？", answers: "エジプト" },
+        {id: 28, theme: "帝国主義と植民地", question: "1882年、イギリスが占領したことでアフリカ分割の引き金となった国は？", answers: "エジプト" },
         {id: 29, theme: "帝国主義と植民地", question: "1884年、ビスマルクが提唱し、アフリカ分割の原則を定めた会議は？", answers: "ベルリン会議" },
         {id: 30, theme: "帝国主義と植民地", question: "アフリカ分割の中で、イタリアを破り独立を維持した国は？", answers: "エチオピア,エチオピア帝国" },
         {id: 31, theme: "帝国主義と植民地", question: "イギリスがエジプトと南アフリカを拠点として南北を貫く植民地の形成を出した政策はなんですか？", answers: "アフリカ縦断政策" },
@@ -64,8 +64,8 @@
         {id: 48, theme: "日清戦争", question: "下関条約で清が日本に支払った賠償金は、主に何に使われたか？（2つ）", answers: "軍備拡張・八幡製鉄所の設立" },
         {id: 49, theme: "日清戦争", question: "戊戌の政変を弾圧し、保守派の中心となった清の皇太后は誰か？", answers: "西太后,西太后" },
         {id: 50, theme: "日清戦争", question: "甲午農民戦争をきっかけに勃発した、朝鮮の支配権をめぐる戦争は？", answers: "日清戦争" },
-        {id: 51, theme: "日清戦争", question: "下関条約で日本が得た遼東半島の返還を要求した3カ国はどこか？", answers: "ロシア,ドイツ,フランス,ロシア・ドイツ・フランス、ロシア・フランス・ドイツ、ドイツ・ロシア・フランス、ドイツ・フランス・ロシア、フランス・ロシア・ドイツ、フランス・ドイツ・ロシア" },
-        {id: 67, theme: "日清戦争", question: "下関条約で日本が得た遼東半島の返還を要求した3カ国はどこか？（完全回答）", answers: "ロシア・ドイツ・フランス、ロシア・フランス・ドイツ、ドイツ・ロシア・フランス、ドイツ・フランス・ロシア、フランス・ロシア・ドイツ、フランス・ドイツ・ロシア" },
+        {id: 51, theme: "日清戦争", question: "下関条約で日本が得た遼東半島の返還を要求した3カ国はどこか？(１カ国でも丸）", answers: "ロシア・ドイツ・フランス,ロシア,ドイツ,フランス,ロシア・フランス・ドイツ,ドイツ・ロシア・フランス,ドイツ・フランス・ロシア,フランス・ロシア・ドイツ,フランス・ドイツ・ロシア" },
+        {id: 67, theme: "日清戦争", question: "下関条約で日本が得た遼東半島の返還を要求した3カ国はどこか？（完全回答）", answers: "ロシア・ドイツ・フランス,ロシア・フランス・ドイツ,ドイツ・ロシア・フランス,ドイツ・フランス・ロシア,フランス・ロシア・ドイツ,フランス・ドイツ・ロシア" },
         {id: 52, theme: "日清戦争", question: "戊戌の政変を主導した、康有為や梁啓超ら改革派がモデルとした国は？", answers: "日本" },
         {id: 76, theme: "日清戦争", question: "下関条約で出席した清の代表は？", answers: "李鴻章" },
         {id: 77, theme: "日清戦争", question: "下関条約で出席した日本の代表は？", answers: "伊藤博文" },
@@ -81,13 +81,13 @@
         {id: 60, theme: "帝国主義諸国の競合", question: "「扶清滅洋」を掲げ、北京の公使館を包囲した農民組織は？", answers: "義和団" },
         {id: 61, theme: "帝国主義諸国の競合", question: "ロシアの満州占領に対抗するため、日本が1902年に結んだ同盟は?", answers: "日英同盟"},
         {id: 62, theme: "帝国主義諸国の競合", question: "日露戦争の講和条約は?", answers: "ポーツマス条約"},
-        {id: 63, theme: "帝国主義諸国の競合", question: "ポーツマス条約で日本がロシアから得た領土（南半分）は?", answers: "樺太、南樺太"},
+        {id: 63, theme: "帝国主義諸国の競合", question: "ポーツマス条約で日本がロシアから得た領土（南半分）は?", answers: "樺太,南樺太"},
         {id: 64, theme: "帝国主義諸国の競合", question: "イギリス・フランス・ロシアが結成した協力関係を何というか？", answers: "三国同盟"},
         {id: 65, theme: "帝国主義諸国の競合", question: "イギリスとロシアが対立を解消した協商は？", answers: "英露協商"},
-        {id: 66, theme: "帝国主義諸国の競合", question: "平和的な交渉を装いながらも、圧倒的な軍事力を背景にして自国の要求を強引に押し通す姿勢を指すアメリカの外交政策は？", answer: "棍棒外交"},
+        {id: 66, theme: "帝国主義諸国の競合", question: "平和的な交渉を装いながらも、圧倒的な軍事力を背景にして自国の要求を強引に押し通す姿勢を指すアメリカの外交政策は？", answers: "棍棒外交"},
         {id: 68, theme: "帝国主義諸国の競合", question: "ロシアと日本の戦争を仲介した国は？", answers: "アメリカ、アメリカ合衆国"},
-        {id: 69, theme: "帝国主義諸国の競合", question: "ポーツマス条約の調印を行った場所は？", answers: "ポーツマス、アメリカ、アメリカ合衆国"},
-        {id: 70, theme: "帝国主義諸国の競合", question: "ロシアと日本の戦争を仲介したアメリカの大統領は？", answers: "ルーズベルト、ローズベルト"},
+        {id: 69, theme: "帝国主義諸国の競合", question: "ポーツマス条約の調印を行った場所は？", answers: "ポーツマス,アメリカ,アメリカ合衆国"},
+        {id: 70, theme: "帝国主義諸国の競合", question: "ロシアと日本の戦争を仲介したアメリカの大統領は？", answers: "ルーズベルト,ローズベルト"},
         {id: 74, theme: "帝国主義諸国の競合", question: "ハワイ諸島を初めて統一してハワイ王国を建国した初代国王は？", answers: "カメハメハ,カメハメハ大王"},
         {id: 75, theme: "帝国主義諸国の競合", question: "義和団が掲げたスローガンは？", answers: "扶清滅洋" },
 
@@ -249,60 +249,78 @@
      * 答え合わせ
      */
     function checkAnswers() {
-        let correctCount = 0;
-        let newMistakeQuestions = []; // ★ 間違えた「問題オブジェクト」を保存
+    let correctCount = 0;
+    let newMistakeQuestions = []; // ★ 間違えた「問題オブジェクト」を保存
 
-        displayedQuestions.forEach((question, index) => {
-            const item = currentQuizSet[index]; 
-            const inputElement = document.getElementById(item.inputId);
-            const userAnswer = inputElement.value.trim();
-            
-            inputElement.readOnly = true;
-            
-            // includesで「複数の答え」のいずれかに一致すればOK
-            if (item.correctAnswers.includes(userAnswer)) {
-                inputElement.classList.remove('incorrect');
-                inputElement.classList.add('correct');
-                correctCount++;
-            } else {
-                inputElement.classList.remove('correct');
-                inputElement.classList.add('incorrect');
-                // ★ 間違えた問題(q)を丸ごと保存
-                newMistakeQuestions.push(question); 
-            }
-        });
-
-        resultsArea.textContent = `結果：${QUIZ_LENGTH}問中、${correctCount}問正解です。`;
-
-        // ボタンの状態を変更
-        if(checkButton) checkButton.disabled = true;
-        if(fixButton) fixButton.disabled = true;
-        if(showAnswersButton) showAnswersButton.disabled = false;
-        if(showPartialButton) showPartialButton.disabled = false;
-
-        // ★★★ 'mistakeQuizSet' で保存 (重要) ★★★
-        if (newMistakeQuestions.length > 0) {
-            const oldMistakes = JSON.parse(localStorage.getItem('mistakeQuizSet')) || [];
-            
-            // ★ IDをキーにしてマージ（重複削除）
-            const combinedMap = new Map();
-            oldMistakes.forEach(q => combinedMap.set(q.id, q));
-            newMistakeQuestions.forEach(q => combinedMap.set(q.id, q));
-            
-            const uniqueMistakes = Array.from(combinedMap.values());
-            
-            localStorage.setItem('mistakeQuizSet', JSON.stringify(uniqueMistakes));
-            
-            resultsArea.textContent += `\n（間違えた${newMistakeQuestions.length}問が「問題の復習」に追加されました）`;
-            
-            // 間違っていたら再挑戦もロック
-            if (reloadButton) {
-                reloadButton.disabled = true;
-                reloadButton.title = '間違えた問題を先に復習してください';
-            }
-        }
+    // ★ 記号(・、,スペース)を全部消すための関数
+    function normalize(str) {
+        if (typeof str !== 'string') return "";
+        // 中点・全角読点・半角カンマ・全角スペース・半角スペースを全て削除
+        return str.replace(/・/g, "")
+                  .replace(/、/g, "")
+                  .replace(/,/g, "")
+                  .replace(/　/g, "") // 全角スペース
+                  .replace(/ /g, "");  // 半角スペース
     }
 
+    displayedQuestions.forEach((question, index) => {
+        const item = currentQuizSet[index]; 
+        const inputElement = document.getElementById(item.inputId);
+        const userAnswer = inputElement.value.trim();
+        
+        // ★ ユーザーの入力から記号を消す (例: "ロシア、ドイツ" -> "ロシアドイツ")
+        const normalizedUserAnswer = normalize(userAnswer);
+
+        inputElement.readOnly = true;
+        
+        // ★ 正解リスト(correctAnswers)を1つずつ取り出し、
+        // ★ 記号を消したものがユーザー入力と一致するかチェック
+        const isCorrect = item.correctAnswers.some(ans => {
+            return normalize(ans) === normalizedUserAnswer;
+        });
+
+        if (isCorrect) {
+            inputElement.classList.remove('incorrect');
+            inputElement.classList.add('correct');
+            correctCount++;
+        } else {
+            inputElement.classList.remove('correct');
+            inputElement.classList.add('incorrect');
+            // ★ 間違えた問題(q)を丸ごと保存
+            newMistakeQuestions.push(question); 
+        }
+    });
+
+    resultsArea.textContent = `結果：${QUIZ_LENGTH}問中、${correctCount}問正解です。`;
+
+    // ボタンの状態を変更
+    if(checkButton) checkButton.disabled = true;
+    if(fixButton) fixButton.disabled = true;
+    if(showAnswersButton) showAnswersButton.disabled = false;
+    if(showPartialButton) showPartialButton.disabled = false;
+
+    // ★★★ 'mistakeQuizSet' で保存 (重要) ★★★
+    if (newMistakeQuestions.length > 0) {
+        const oldMistakes = JSON.parse(localStorage.getItem('mistakeQuizSet')) || [];
+        
+        // ★ IDをキーにしてマージ（重複削除）
+        const combinedMap = new Map();
+        oldMistakes.forEach(q => combinedMap.set(q.id, q));
+        newMistakeQuestions.forEach(q => combinedMap.set(q.id, q));
+        
+        const uniqueMistakes = Array.from(combinedMap.values());
+        
+        localStorage.setItem('mistakeQuizSet', JSON.stringify(uniqueMistakes));
+        
+        resultsArea.textContent += `\n（間違えた${newMistakeQuestions.length}問が「問題の復習」に追加されました）`;
+        
+        // 間違っていたら再挑戦もロック
+        if (reloadButton) {
+            reloadButton.disabled = true;
+            reloadButton.title = '間違えた問題を先に復習してください';
+        }
+    }
+}
     /**
      * （すべての）答えを表示する
      */

@@ -6,10 +6,8 @@ body {
     font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     line-height: 1.7;
     
-    /* ★背景はそのまま (ダークなグラデーション) */
+    /* ★背景 (ダークなグラデーション) */
     background: linear-gradient(135deg, #1a1a2e 0%, #2a2a3e 100%);
-    
-    /* (文字色はカード側で指定するので不要に) */
     
     /* 中央配置 */
     display: flex;
@@ -18,6 +16,7 @@ body {
     min-height: 100vh;
     padding: 20px;
     box-sizing: border-box;
+    margin: 0; /* bodyのマージンをリセット */
 }
 
 /* --- 2. メインのカード (★明るく見やすく) --- */
@@ -36,15 +35,24 @@ main {
     /* 浮かび上がる影の効果は維持 */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     text-align: center;
+    box-sizing: border-box; /* パディングを含めて幅を計算 */
+}
+
+h1, h2 { /* h2も対象に追加 */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    margin-top: 0;
 }
 
 h1 {
-    font-family: 'Roboto', sans-serif;
     font-size: 2em;
-    font-weight: 700;
-    /* ★タイトル色を濃い青に変更 */
     color: #1a2e4a;
-    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.6em;
+    color: #333;
     margin-bottom: 15px;
 }
 
@@ -54,70 +62,75 @@ p {
     color: #555; /* 少し薄い黒 */
 }
 
-/* --- 3. 干支の対応表スタイル (★明るい背景用) --- */
-.eto-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 25px 0;
-    background: #fdfdfd; /* テーブル背景を薄いグレーに */
-    border-radius: 8px;
-    overflow: hidden;
-}
-.eto-table th, .eto-table td {
-    border: 1px solid #ddd; /* 境界線をグレーに */
-    padding: 12px 5px;
-    vertical-align: middle;
+/* --- 3. 干支の対応表スタイル (★横長) --- */
+#jikkan-table {
+    width: 100%; 
+    max-width: 600px; 
+    margin: 25px auto; 
+    border-collapse: collapse; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: #fff;
 }
 
-/* 表のヘッダー */
-.eto-table thead th {
-    background: #f4f4f4; /* ヘッダー背景 */
-    font-size: 0.9em;
-    padding: 10px 5px;
-    width: 9%;
+#jikkan-table th,
+#jikkan-table td {
+    border: 1px solid #ddd; 
+    padding: 12px;
+    text-align: center; 
+    width: 20%; /* 5列均等割り */
+}
+
+/* 表のヘッダー行 (十干) */
+#jikkan-table th {
+    background-color: #f7f7f7;
+    font-weight: bold;
     color: #333;
-}
-.eto-table thead th:first-child {
-    width: 10%;
-    font-size: 0.95em;
+    font-size: 0.95em; 
 }
 
-/* 表の本体 */
-.eto-table tbody td {
+/* 表のデータセル (数字) */
+#jikkan-table td {
     font-size: 1.2em;
-    line-height: 1.4;
     font-weight: 700;
-    color: #222;
 }
-.eto-table tbody td:first-child { /* 「十干」セル */
-    background: #f9f9f9;
+
+/* --- 3.5. 具体例ボックス --- */
+.example-box {
+    max-width: 600px;
+    margin: -10px auto 30px auto; /* 表の下、計算機の上 */
+    padding: 15px 20px;
+    background: #f9f9f9; 
+    border-radius: 8px;
+    border: 1px solid #eee;
+    text-align: left; /* 左揃え */
+}
+.example-box p {
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    color: #333;
     font-size: 1em;
 }
-
-/* 読み仮名 */
-.eto-table td span {
-    display: block;
-    font-size: 0.7em;
-    font-weight: 400;
-    color: #777; /* グレー */
+.example-box ul {
+    margin: 0;
+    padding-left: 20px; 
+}
+.example-box li {
+    font-size: 0.95em;
+    color: #444;
+    margin-bottom: 5px;
+}
+.example-box li b {
+    color: #005a9c; 
 }
 
-/* --- 4. 計算機能セクション (★明るい背景用) --- */
+
+/* --- 4. 計算機能セクション --- */
 .calculator {
     margin-top: 30px;
     padding-top: 25px;
     border-top: 1px solid #eee; /* 薄い区切り線 */
 }
-.calculator h2 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.6em;
-    color: #333;
-    margin-bottom: 15px;
-}
-.calculator p {
-    font-size: 0.95em;
-    color: #555;
-}
+/* (h2, p は 2. で共通設定済み) */
 
 /* 入力とボタンのボックス */
 .calc-box {
@@ -132,15 +145,14 @@ p {
     flex-grow: 1;
     padding: 12px 15px;
     font-size: 1.1em;
-    border: 1px solid #ccc; /* グレーの枠線 */
+    border: 1px solid #ccc; 
     border-radius: 6px;
-    background: #fff; /* 背景白 */
-    color: #333; /* 文字黒 */
+    background: #fff; 
+    color: #333; 
     outline: none;
     transition: all 0.2s;
 }
 #year-input:focus {
-    /* クリックしたら水色に光る */
     border-color: #87CEEB;
     box-shadow: 0 0 10px rgba(135, 206, 235, 0.5);
 }
@@ -151,7 +163,6 @@ p {
     font-size: 1.1em;
     font-weight: 700;
     color: #1a1a2e;
-    /* ボタンの色は水色グラデーションのまま */
     background: linear-gradient(90deg, #87CEEB, #B0E0E6);
     border: none;
     border-radius: 6px;
@@ -167,11 +178,12 @@ p {
 #result-text {
     font-size: 1.4em;
     font-weight: 700;
-    color: #005a9c; /* ★結果を濃い青色に変更 */
+    color: #005a9c; /* 濃い青色 */
     margin-top: 25px;
-    min-height: 1.5em;
-    /* (影は不要なので削除) */
+    min-height: 1.5em; /* 結果がなくても高さを確保 */
 }
+
+/* --- 5. ホームに戻るリンク --- */
 #fixed-back-link {
     /* 1. 位置の固定 */
     position: fixed;
@@ -179,15 +191,15 @@ p {
     right: 20px;
     z-index: 1000;
 
-    /* 2. デザイン (★テキスト用に変更) */
+    /* 2. デザイン */
     display: block;
-    padding: 12px 20px;  /* 内側の余白（幅と高さは自動） */
-    font-size: 16px;       /* テキストのフォントサイズ */
-    font-weight: bold;   /* 太字 */
+    padding: 12px 20px; 
+    font-size: 16px;     
+    font-weight: bold;  
     color: white;
     background-color: #007bff;
     text-decoration: none;
-    border-radius: 8px;    /* ★角丸の四角形に変更 */
+    border-radius: 8px;   
     
     /* 3. 影とアニメーション */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
