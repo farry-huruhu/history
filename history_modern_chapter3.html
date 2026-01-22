@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歴史学習サイト - ホーム</title>
+    <link rel="stylesheet" href="history_modern_chapter3.css">
+</head>
+<body>
+
+    <div id="fusuma-loader">
+        <div class="door door-left"></div>
+        <div class="door door-right"></div>
+    </div>
+
+    <header>
+        <h1>ようこそ！歴史学習サイトへ</h1>
+    </header>
+
+    <main>
+        <nav class="breadcrumb-nav">
+            <a href="history_modern.html">🏠 学習メニューページへ戻る</a>
+        </nav>
+        <section class="content-block">
+            <h2>学習するテーマを選択</h2>
+            <p>学びたい時代のページを選んでください。</p>
+
+            <nav class="theme-navigation">
+                
+                <a href="history_modern_times_east_asia.html" class="nav-button theme-button">
+                    <h3>近代東アジア史</h3>
+                    <p>19世紀後半、清の弱体化と日本の進出について学びます。</p>
+                </a>
+
+                <a href="history_constitutionalism.html" class="nav-button theme-button">
+                    <h3>立憲制の広まり</h3>
+                    <p>ドイツ・イタリアの統一や、大日本帝国憲法について学びます。</p>
+                </a>
+                
+                <a href="history_imperialism.html" class="nav-button theme-button">
+                    <h3>帝国主義と植民地</h3>
+                    <p>帝国主義の諸原因と、アフリカ分割の進行について学びます。</p>
+                </a>
+                
+                <a href="history_sino_japanese_war.html" class="nav-button theme-button">
+                    <h3>日清戦争と華夷秩序の解体</h3>
+                    <p>日清戦争の勃発と、東アジアの伝統的国際秩序の終焉を学びます。</p>
+                </a>
+                
+                <a href="history_imperialism_relations.html" class="nav-button theme-button">
+                    <h3>帝国主義諸国の競合と国際関係</h3>
+                    <p>列強の同盟・協商関係と、日露戦争に至る経緯を学びます。</p>
+                </a>
+                
+                <a href="history_colonial_rule.html" class="nav-button theme-button">
+                    <h3>植民地支配と植民地の近代</h3>
+                    <p>列強による植民地支配の実態と、現地社会の変容について学びます。</p>
+                </a>
+                
+                <a href="history_early_20th.html" class="nav-button theme-button">
+                    <h3>20世紀はじめの世界</h3>
+                    <p>世界の各地の人々が帝国主義政策に対してどのような態度を示していたか学びます。</p>
+                </a>
+
+                <a href="history_mass_society.html" class="nav-button theme-button">
+                    <h3>大衆社会の時代</h3>
+                    <p>20世紀になぜ大衆化が進んだのかを学びます。</p>
+                </a>
+
+                <a href="history_ww1.html" class="nav-button theme-button">
+                    <h3>第一次世界大戦の展開</h3>
+                    <p>第一次世界大戦の始まりから終結までを学びます。</p>
+                </a>
+                <a href="history_usa_society.html" class="nav-button theme-button">
+                    <h3>アメリカ合衆国の台頭と大衆社会</h3>
+                    <p>大量生産と大量消費が私達の生活に与えた影響を学びます。</p>
+                </a>
+                <a href="history_asia_migration.html" class="nav-button theme-button">
+                    <h3>アジアの経済成長と移民</h3>
+                    <p>第一次世界大戦後のアジア諸地域の結び付きを学びます。</p>
+                </a>
+                <a href="history_anti_colonial.html" class="nav-button theme-button">
+                    <h3>反植民地主義の高揚と国際秩序の変容</h3>
+                    <p>国際協調の時代にアジア各地でどのような動きがあったかを学びます。</p>
+                </a>
+                <a href="history_timelines_menu.html" class="nav-button" id="timelines-menu-button">
+                    <h3>🕰️ 年表</h3>
+                    <p>「総合年表」と「各国史年表」のどちらかを選択します。</p>
+                </a>
+                
+                <a href="history_comprehensive_menu.html" class="nav-button" id="comprehensive-button">
+                    <h3>🎓 総合問題①</h3>
+                    <p>ランダム出題か、間違った問題の復習かを選択します。</p>
+                </a>
+            
+            </nav>
+        </section>
+    </main>
+
+    <script>
+        // 1. 画像リストの定義（4枚）
+        const images = [
+            'fusuma1.jpg', 
+            'fusuma2.jpg', 
+            'fusuma3.jpg', 
+            'fusuma4.jpg'
+        ];
+
+        // 2. ランダムに1枚選ぶ
+        const randomImg = images[Math.floor(Math.random() * images.length)];
+
+        // 3. CSSに適用する
+        const doors = document.querySelectorAll('.door');
+        doors.forEach(door => {
+            door.style.backgroundImage = `url('${randomImg}')`;
+        });
+
+        // 4. 読み込み完了後に開く
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 800);
+        });
+    </script>
+
+</body>
+</html>

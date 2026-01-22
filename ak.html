@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山水画の襖ローディング</title>
+    <style>
+        /* ▼▼▼ 基本設定 ▼▼▼ */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: serif;
+            background-color: #f0f0f0;
+            overflow: hidden; /* ローディング中はスクロール禁止 */
+        }
+        
+        header, main {
+            padding: 50px;
+            text-align: center;
+            opacity: 0; /* 最初は中身を隠しておく */
+            transition: opacity 1s 1s; /* 襖が開いた後にふわっと表示 */
+        }
+
+        /* ▼▼▼ 襖（ローディング画面）のCSS ▼▼▼ */
+        #fusuma-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        /* 左右の襖の共通設定 */
+        .door {
+            position: absolute;
+            top: 0;
+            width: 50%; /* 画面の半分の幅 */
+            height: 100%;
+            
+            /* ▼ 画像の設定（ここがポイント） ▼ */
+            background-image: url('fusuma.jpg'); /* 画像ファイル名 */
+            background-repeat: no-repeat;
+            
+            /* 画像を「ドア幅の2倍（＝画面全体）」に引き伸ばす設定 */
+            /* これにより、左右合わせると1枚の絵になります */
+            background-size: 200% 100%; 
+
+            /* 襖の枠（絵の雰囲気に合わせて細めの黒枠） */
+            border-top: 8px solid #222;
+            border-bottom: 8px solid #222;
+            box-sizing: border-box;
+            
+            /* 開くアニメーションの設定 */
+            transition: transform 2.0s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ▼ 左の襖 ▼ */
+        .door-left {
+            left: 0;
+            /* 画像の「左端」を表示 */
+            background-position: 0% center; 
+            border-right: 1px solid rgba(0,0,0,0.3); /* 薄い合わせ目 */
+        }
+
+        /* ▼ 右の襖 ▼ */
+        .door-right {
+            right: 0;
+            /* 画像の「右端」を表示 */
+            background-position: 100% center; 
+        }
+
+        /* ▼ 襖の取っ手（引き手） ▼ */
+        /* 絵の邪魔にならないよう、シンプルで少し透過したデザインにしています */
+        .door::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 36px;
+            height: 36px;
+            background: radial-gradient(circle, #333 30%, #555 100%);
+            border: 2px solid #888;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            opacity: 0.9;
+        }
+        .door-left::before { right: 15px; }
+        .door-right::before { left: 15px; }
+
+
+        /* ▼▼▼ 読み込み完了時（.loaded）の動き ▼▼▼ */
+        
+        body.loaded .door-left {
+            transform: translateX(-100%); /* 左へスライド */
+        }
+        
+        body.loaded .door-right {
+            transform: translateX(100%); /* 右へスライド */
+        }
+
+        body.loaded header, 
+        body.loaded main {
+            opacity: 1; /* 中身を表示 */
+        }
+
+        body.loaded {
+            overflow: auto; /* スクロール許可 */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="fusuma-loader">
+        <div class="door door-left"></div>
+        <div class="door door-right"></div>
+    </div>
+
+    <header>
+        <h1>ようこそ</h1>
+    </header>
+    <main>
+        <p>山水画の襖が開きました。</p>
+        <p>ここにサイトのコンテンツが入ります。</p>
+        <div style="height: 800px; background: #ddd; margin-top:20px;">
+            ダミーコンテンツエリア
+        </div>
+    </main>
+
+    <script>
+        window.addEventListener('load', function() {
+            // 画像などの読み込みが完了した後、少し待ってから開く（0.8秒）
+            // 絵をじっくり見せるために少し長めに待機時間を取っています
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 800);
+        });
+    </script>
+</body>
+</html>

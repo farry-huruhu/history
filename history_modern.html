@@ -3,58 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>歴史学習サイト - ホーム</title>
+    <title>近代史コース選択</title>
     <link rel="stylesheet" href="history_modern.css">
 </head>
 <body>
 
-    <header>
-        <h1>ようこそ！歴史学習サイトへ</h1>
-    </header>
+    <div class="fountain-pen" onclick="togglePen()">
+        <div class="pen-cap"></div>
+        <div class="pen-nib"></div>
+        <div class="pen-body"></div>
+    </div>
 
-    <main>
-        <nav class="breadcrumb-nav">
-            <a href="index.html">🏠 トップページへ戻る</a>
-        </nav>
-        <section class="content-block">
-            <h2>学習するテーマを選択</h2>
-            <p>学びたい時代のページを選んでください。</p>
+    <div class="coffee-cup"></div>
 
-            <nav class="theme-navigation">
-                
-                <a href="history_modern_times_east_asia.html" class="nav-button theme-button">
-                    <h3>近代東アジア史</h3>
-                    <p>19世紀後半、清の弱体化と日本の進出について学びます。</p>
-                </a>
-
-                <a href="history_constitutionalism.html" class="nav-button theme-button">
-                    <h3>立憲制の広まり</h3>
-                    <p>ドイツ・イタリアの統一や、大日本帝国憲法について学びます。</p>
-                </a>
-                <a href="history_imperialism.html" class="nav-button theme-button">
-                <h3>帝国主義と植民地</h3>
-                <p>帝国主義の諸原因と、アフリカ分割の進行について学びます。</p>
-            </a>
-            <a href="history_sino_japanese_war.html" class="nav-button theme-button">
-                <h3>日清戦争と華夷秩序の解体</h3>
-                <p>日清戦争の勃発と、東アジアの伝統的国際秩序の終焉を学びます。</p>
-            </a>
-            <a href="history_imperialism_relations.html" class="nav-button theme-button">
-                <h3>帝国主義諸国の競合と国際関係</h3>
-                <p>列強の同盟・協商関係と、日露戦争に至る経緯を学びます。</p>
-                </a>
-            <a href="history_timelines_menu.html" class="nav-button" id="timelines-menu-button">
-                <h3>🕰️ 年表</h3>
-                <p>「総合年表」と「各国史年表」のどちらかを選択します。</p>
-            </a>
-            <a href="history_comprehensive_menu.html" class="nav-button" id="comprehensive-button">
-    <h3>🎓 総合問題</h3>
-    <p>ランダム出題か、間違った問題の復習かを選択します。</p>
-    </a>
+    <div class="book-scene">
+        <div class="book">
             
-                </nav>
-        </section>
-    </main>
-    
+            <div class="book-cover">
+                
+                <div class="cover-front">
+                    <div class="cover-content">
+                        <h2>近代史<br><span style="font-size:0.6em">激動の時代</span></h2>
+                        <div class="deco-line"></div>
+                        <p class="tap-hint">Tap / Hover to Open</p>
+                    </div>
+                </div>
+
+                <div class="cover-back">
+                    <div class="back-deco">History Note</div>
+                </div>
+
+            </div>
+
+            <div class="book-inside">
+                <h3>学習メニュー</h3>
+                
+                <a href="history_modern.html" class="chapter-link">
+                    <span class="chapter-title">1. 明治維新と文明開化</span>
+                    <span class="arrow">▶</span>
+                </a>
+
+                <a href="history_modern_chapter3.html" class="chapter-link">
+                    <span class="chapter-title">2. 日清・日露戦争</span>
+                    <span class="arrow">▶</span>
+                </a>
+
+                <a href="#" class="chapter-link" style="opacity: 0.5; cursor: default;">
+                    <span class="chapter-title">3. （準備中）</span>
+                    <span class="arrow">🔒</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <a href="index.html" class="back-home">← トップページに戻る</a>
+
+    <div id="achievement-box" class="achievement">
+        <div class="icon">🏆</div>
+        <div class="text">
+            <span class="title">実績解除</span>
+            <span class="desc">学びへの第一歩</span>
+        </div>
+    </div>
+
+    <script>
+        // ==========================================
+        // 設定（achievements.js と同じキー名にする）
+        // ==========================================
+        const SAVE_KEY = 'history_achievements';     // 保存場所の名前
+        const PEN_ACHIEVEMENT_ID = 'achv_learning_prep'; // ペンの実績ID
+
+        let isAchievementUnlocked = false;
+        
+        // ページを開いた瞬間のチェック
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedData = localStorage.getItem(SAVE_KEY);
+            const myAchievements = savedData ? JSON.parse(savedData) : [];
+            
+            // すでに実績を持っているなら、フラグを立てておく（通知は出さない）
+            if (myAchievements.includes(PEN_ACHIEVEMENT_ID)) {
+                isAchievementUnlocked = true;
+                // すでに獲得済みなら、最初からペンを開けておく演出も可能です
+                // document.querySelector('.fountain-pen').classList.add('open');
+            }
+        });
+
+        // ペンをクリックした時の動作
+        function togglePen() {
+            const pen = document.querySelector('.fountain-pen');
+            
+            // ペンの開け閉め（クラスの付け外し）
+            pen.classList.toggle('open');
+
+            // 「ペンが開いた」かつ「まだ実績解除していない」場合
+            if (pen.classList.contains('open') && !isAchievementUnlocked) {
+                unlockPenAchievement();
+                isAchievementUnlocked = true;
+            }
+        }
+
+        // 実績解除の処理（保存＆通知）
+        function unlockPenAchievement() {
+            // 1. 画面に通知を出す
+            showAchievement();
+
+            // 2. データを保存する
+            const savedData = localStorage.getItem(SAVE_KEY);
+            const myAchievements = savedData ? JSON.parse(savedData) : [];
+
+            // まだリストに入っていなければ追加して保存
+            if (!myAchievements.includes(PEN_ACHIEVEMENT_ID)) {
+                myAchievements.push(PEN_ACHIEVEMENT_ID);
+                localStorage.setItem(SAVE_KEY, JSON.stringify(myAchievements));
+            }
+        }
+
+        // 通知ボックスを表示するアニメーション
+        function showAchievement() {
+            const box = document.getElementById('achievement-box');
+            if(box) {
+                box.classList.add('show');
+                // 4秒後に消す
+                setTimeout(() => {
+                    box.classList.remove('show');
+                }, 4000);
+            }
+        }
+    </script>
+
 </body>
 </html>

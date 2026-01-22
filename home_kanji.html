@@ -5,170 +5,198 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>漢字一文字クイズ ホーム</title>
     <style>
+        /* 1. 背景を「原稿用紙（げんこうようし）」風にする */
         body {
-            font-family: sans-serif;
+            /* 漢字が綺麗に見える明朝体フォント */
+            font-family: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "HGS Mincho E", serif;
             text-align: center;
-            background: linear-gradient(to bottom, #e0f7fa, #f0f4f8);
+            
+            /* 背景色（紙の色） */
+            background-color: #fdfbf7;
+            
+            /* CSSで原稿用紙のマス目を描く */
+            background-image: 
+                linear-gradient(#e0dcd3 1px, transparent 1px),
+                linear-gradient(90deg, #e0dcd3 1px, transparent 1px);
+            background-size: 40px 40px; /* マスの大きさ */
+            
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            color: #2b2b2b; /* 文字は真っ黒ではなく墨色 */
         }
+
+        /* 2. メインの箱を「半紙（はんし）」のように白く際立たせる */
         #home-container {
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            min-width: 300px;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 50px 40px;
+            border-radius: 4px;
+            /* 影をつけて紙が浮いているように見せる */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            min-width: 320px;
+            max-width: 480px;
+            width: 100%;
+            /* 枠線を二重線にして和風に */
+            border: 4px double #555;
+            position: relative;
         }
+
+        /* タイトルの装飾（筆で書いたような下線） */
         h1 {
-            color: #333;
-            margin-bottom: 20px;
+            color: #000;
+            margin-bottom: 10px;
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            /* 筆文字風の下線 */
+            border-bottom: 3px solid #333;
+            display: inline-block;
+            padding-bottom: 10px;
         }
+
         p {
             font-size: 18px;
             color: #555;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            font-weight: bold;
         }
-        /* ボタン共通スタイル */
+
+        /* 3. ボタンのデザイン（ハンコや木札のイメージ） */
         .start-button {
             display: block;
             width: 100%;
-            box-sizing: border-box; /* パディングを含めて幅を計算 */
+            box-sizing: border-box;
             font-size: 20px;
-            padding: 15px 30px;
+            font-weight: bold;
+            font-family: sans-serif; /* ボタンの文字は読みやすくゴシック体でもOK */
+            padding: 18px 30px;
             cursor: pointer;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             text-decoration: none;
-            transition: background-color 0.3s;
-            margin-bottom: 15px; /* ボタン間の余白 */
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.2); /* 立体感を出す */
+            position: relative;
         }
+
         .start-button:hover {
+            transform: translateY(2px); /* 押した感じ */
+            box-shadow: 0 2px 0 rgba(0,0,0,0.2);
             opacity: 0.9;
         }
-        
-        /* 練習モード (青) */
+
+        /* --- 色の設定（和の伝統色） --- */
+
+        /* 練習モード：藍色（あいいろ・ジャパンブルー） */
         .button-practice {
-            background-color: #007bff;
-        }
-        .button-practice:hover {
-            background-color: #0056b3;
+            background-color: #1a237e; 
         }
 
-        /* チャレンジモード (オレンジ) */
+        /* チャレンジモード：朱色（しゅいろ・ハンコの色） */
         .button-challenge {
-            background-color: #fd7e14;
-        }
-        .button-challenge:hover {
-            background-color: #c96511;
+            background-color: #d32f2f;
         }
         
+        /* 逆ゲーム：松葉色（まつばいろ・深い緑） */
+        .button-reverse {
+            background-color: #2e7d32; 
+        }
+        .button-reverse h3,
+        .button-reverse p {
+            color: white;
+            margin: 0; /* 余計な空白を消す */
+        }
+
+        /* ミックス：江戸紫（えどむらさき） */
+        .button-mix {
+            background-color: #6a1b9a;
+        }
+        .button-mix h3,
+        .button-mix p {
+            color: white;
+            margin: 0;
+        }
+
+        /* ミックスゲームセクションの初期設定 */
+        #mix-game-section {
+            display: none;
+        }
+
+        /* 4. メインへ戻るボタン（右下） */
+        #main-home-float-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 75px;
+            height: 75px;
+            /* 墨色（すみいろ） */
+            background-color: #37474f;
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            font-size: 13px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid white; /* 白い縁取りで家紋っぽく */
+        }
+
+        #main-home-float-btn:hover {
+            background-color: #263238;
+            transform: scale(1.1) rotate(-10deg);
+        }
+
+        /* 戻るリンク */
         .back-link {
             display: block;
-            margin-top: 20px;
-            font-size: 16px;
-            color: #555;
+            margin-top: 25px;
+            font-size: 15px;
+            color: #795548;
+            text-decoration: underline;
         }
-        
-        .button-reverse {
-    background-color: #28a745; /* 緑色 (ご提示の青 #007bff から変更) */
-    border-color: #28a745;     /* 枠線の色も緑に */
-    
-    /* ↓ 中の文字色を白に変更 (start-buttonの上書き) */
-    color: white;
-}
-
-/* ↓ h3, pタグの文字色も白に */
-.button-reverse h3,
-.button-reverse p {
-    color: white;
-}
-
-.button-reverse:hover {
-    background-color: #218838; /* ホバー時 (濃い緑) */
-    border-color: #218838;
-    color: white;
-}
-
-.button-mix {
-    background-color: #6f42c1; /* 紫色 */
-    border-color: #6f42c1;
-    color: white;
-}
-.button-mix h3,
-.button-mix p {
-    color: white;
-}
-.button-mix:hover {
-    background-color: #5a379e; /* 濃い紫 */
-    border-color: #5a379e;
-    color: white;
-}
-
-/* ★★★ ミックスボタンをデフォルトで非表示にする ★★★ */
-#mix-game-section {
-    display: none;
-}
-#main-home-float-btn {
-    position: fixed; /* 画面に固定 */
-    bottom: 20px;    /* 下から20px */
-    right: 20px;     /* 右から20px */
-    
-    display: block;
-    width: 70px;
-    height: 70px;
-    background-color: #007bff; /* 青色 */
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 50%; /* 丸くする */
-    
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 1.3;
-    padding-top: 15px; /* 文字を中央に寄せる (2行用) */
-    box-sizing: border-box;
-    
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: background-color 0.2s, transform 0.2s;
-    
-    z-index: 1000; /* 他の要素より手前に表示 */
-}
-
-/* マウスを乗せた時 */
-#main-home-float-btn:hover {
-    background-color: #0056b3; /* 少し濃い青 */
-    transform: scale(1.1); /* 少し大きくする */
-}
     </style>
 </head>
 <body>
-<a href="quiz_index.html" id="main-home-float-btn">🏠<br>メインへ</a>
+
+    <a href="quiz_index.html" id="main-home-float-btn">
+        <span style="font-size: 24px; display:block; margin-bottom:2px;">🏠</span>
+        メインへ
+    </a>
+
     <div id="home-container">
         <h1>漢字一文字クイズ</h1>
-        <p>（漢字→国名）</p>
+        <p>（漢字 <span style="font-size:14px">➡</span> 国名）</p>
         
         <a href="quiz_kanji.html" class="start-button button-practice">
-            練習モード (時間無制限)
+            🖊️ 練習モード <span style="font-size:14px; font-weight:normal;">(時間無制限)</span>
         </a>
 
         <a href="quiz_challenge.html" class="start-button button-challenge">
-            チャレンジモード (60秒)
+            🔥 チャレンジ <span style="font-size:14px; font-weight:normal;">(60秒)</span>
         </a>
 
         <a href="quiz_reverse_kanji.html" class="start-button button-reverse">
-            逆・国一文字ゲーム
+            🔄 逆・国一文字ゲーム
         </a>
-        <section classs="theme-section" id="mix-game-section">
+
+        <section class="theme-section" id="mix-game-section">
             <div class="theme-container" style="grid-template-columns: 1fr;">
                 <a href="quiz_mix_kanji.html" class="start-button button-mix">
-                    ミックス・国一文字ゲーム
-                    
+                    🌀 ミックス・国一文字ゲーム
                 </a>
             </div>
         </section>
-<script src="home_kanji.js"></script>
+
+        <script src="home_kanji.js"></script>
+    </div>
+
 </body>
 </html>

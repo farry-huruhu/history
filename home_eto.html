@@ -5,95 +5,153 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>干支関連クイズ</title>
     <style>
-        /* index.html と同じスタイルを使用 */
+        /* 1. 全体の背景を「和紙」のような優しいクリーム色に */
         body {
-            font-family: sans-serif;
+            /* 明朝体（筆文字っぽいフォント）を優先 */
+            font-family: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "HGS Mincho E", serif;
             text-align: center;
-            background: linear-gradient(to bottom, #e0f7fa, #f0f4f8);
+            /* 和紙のような生成り色 */
+            background-color: #fcfaf2;
+            /* 背景にうっすら和柄（市松模様）を入れるCSSトリック */
+            background-image: 
+                linear-gradient(45deg, #f6f3e6 25%, transparent 25%, transparent 75%, #f6f3e6 75%, #f6f3e6),
+                linear-gradient(45deg, #f6f3e6 25%, transparent 25%, transparent 75%, #f6f3e6 75%, #f6f3e6);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             padding: 20px;
-            box-sizing: border-box; 
+            box-sizing: border-box;
+            color: #3e2723; /* 文字は真っ黒ではなく、濃いこげ茶色 */
         }
+
+        /* 2. メインの箱を「奉納額（ほうのうがく）」や「年賀状」風に */
         #home-container {
             background-color: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            min-width: 300px;
+            padding: 50px 40px;
+            /* 角を少し丸くしつつ、二重線のボーダーで和風感を出す */
+            border: 4px double #b71c1c; /* 神社の鳥居のような赤 */
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            min-width: 320px;
+            max-width: 450px;
+            width: 100%;
+            position: relative;
         }
+
+        /* タイトルの装飾 */
         h1 {
-            color: #333;
-            margin-bottom: 20px;
+            color: #b71c1c; /* 朱色 */
+            margin-bottom: 10px;
+            font-size: 32px;
+            font-weight: bold;
+            /* 文字の周りに少し余白を持たせる */
+            letter-spacing: 0.1em;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 15px;
+            display: inline-block;
         }
+
         p {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 30px;
+            font-size: 16px;
+            color: #5d4037;
+            margin-bottom: 35px;
+            margin-top: 10px;
         }
+
+        /* 3. ボタンのデザイン（ハンコや札のような雰囲気） */
         .start-button {
             display: block;
-            font-size: 20px;
-            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 18px 20px;
             cursor: pointer;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px; /* 角丸は控えめに */
             text-decoration: none;
-            transition: background-color 0.3s;
-            margin-bottom: 15px; 
-            min-width: 250px;
+            margin-bottom: 20px; 
+            width: 100%;
             box-sizing: border-box;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.1); /* 下に厚みを持たせる */
+            position: relative;
         }
 
-        /* 干支と年号クイズ (緑) */
-        .button-eto-year {
-            background-color: #28a745; 
+        /* ホバー時の動き（沈む動き） */
+        .start-button:hover {
+            transform: translateY(2px); /* 少し下に沈む */
+            box-shadow: 0 2px 0 rgba(0,0,0,0.1); /* 影が小さくなる */
+            opacity: 0.9;
         }
-        .button-eto-year:hover {
-            background-color: #218838;
+
+        /* --- 各ボタンの和風カラー --- */
+
+        /* 干支と年号：抹茶色（まっちゃいろ） */
+        .button-eto-year {
+            background-color: #556b2f; 
+            border: 1px solid #33691e;
         }
         
-        /* 十干クイズ (青) */
+        /* 十干：藍色（あいいろ） */
         .button-jikkan {
-            background-color: #007bff;
-        }
-        .button-jikkan:hover {
-            background-color: #0056b3;
+            background-color: #1a237e;
+            border: 1px solid #0d47a1;
         }
 
-        /* 戻るリンク */
+        /* 解説：黄金色（こがねいろ）/ 山吹色 */
+        .button-explanation {
+            background-color: #fbc02d;
+            color: #3e2723; /* 背景が明るいので文字はこげ茶 */
+            border: 1px solid #f57f17;
+            font-weight: 900;
+        }
+        
+        /* 4. 「トップに戻る」リンク */
         .back-link {
             display: inline-block;
-            margin-top: 20px;
-            font-size: 16px;
-            color: #6c757d;
+            margin-top: 30px;
+            font-size: 15px;
+            color: #8d6e63;
+            text-decoration: none;
+            border-bottom: 1px dashed #8d6e63; /* 点線の下線 */
+            padding-bottom: 2px;
+            transition: color 0.3s;
         }
-        .button-explanation {
-    background-color: #6c757d; /* グレー */
-}
-.button-explanation:hover {
-    background-color: #5a6268;
-}
+        .back-link:hover {
+            color: #b71c1c;
+            border-bottom-color: #b71c1c;
+        }
+
+        /* 装飾：タイトルの上に小さなマークをつける（CSSのみで表現） */
+        #home-container::before {
+            content: "🎍"; /* 門松の絵文字 */
+            font-size: 40px;
+            display: block;
+            margin-bottom: -10px;
+        }
+
     </style>
 </head>
 <body>
 
     <div id="home-container">
         <h1>干支関連クイズ</h1>
-        <p>遊ぶクイズを選んでね！</p>
+        <p>遊びたいクイズを選んでください</p>
         
         <a href="quiz_eto.html" class="start-button button-eto-year">
             干支と年号クイズ
         </a>
         
         <a href="quiz_jikkan.html" class="start-button button-jikkan">
-            十干クイズ
+            十干（じっかん）クイズ
         </a>
+        
         <a href="jikkan_explanation.html" class="start-button button-explanation">
-            西暦と干支の対応表を見る
+            📜 西暦と干支の対応表を見る
         </a>
         
         <a href="quiz_index.html" class="back-link">

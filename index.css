@@ -1,4 +1,6 @@
-/* 基本的なスタイルリセット */
+/* =========================================
+   基本設定 (リセット・フォント・背景)
+   ========================================= */
 body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
@@ -8,11 +10,15 @@ body {
     font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
     line-height: 1.7;
     color: #fff; 
+    /* 背景グラデーション */
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #2c3e50 100%);
-    background-attachment: fixed; 
+    background-attachment: fixed; /* 背景を固定して高級感を出す */
+    min-height: 100vh; /* 画面の高さが足りなくても背景を埋める */
 }
 
-/* ヘッダー */
+/* =========================================
+   ヘッダー
+   ========================================= */
 header {
     background: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
@@ -26,7 +32,9 @@ header h1 {
     font-size: 1.8em;
 }
 
-/* メインコンテンツのコンテナ */
+/* =========================================
+   メインコンテンツ枠
+   ========================================= */
 main {
     max-width: 1200px; 
     margin: 30px auto; 
@@ -50,23 +58,30 @@ h2 {
     font-size: 1.8em;
 }
 
-/* --- 時代選択ボタン（3列グリッド） --- */
+/* =========================================
+   ★ここを修正: ボタンの並び (グリッドレイアウト)
+   スマホ対応のため、固定の3列ではなく「自動調整」に変更しました
+   ========================================= */
 .era-navigation {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3列 */
+    /* 幅が300px確保できるなら並べる、できなければ折り返す設定。
+       これによりPCでは3列、スマホでは1列に自動でなります。
+    */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px; 
     margin-top: 20px;
 }
 
-
-/* ★★★ ここからがボタンの設定 ★★★ */
+/* =========================================
+   ボタン共通デザイン (.nav-button)
+   ========================================= */
 .nav-button {
     display: block;
     padding: 25px;
     text-decoration: none;
     color: #ffffff; 
     text-align: left;
-    height: 150px; 
+    height: 150px; /* 【基本の高さ】 */
     border-radius: 10px; 
     transition: all 0.25s ease-out;
     
@@ -77,10 +92,8 @@ h2 {
     -webkit-backdrop-filter: blur(5px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
     
-    /* ★ 1. topアニメーション用に position を relative に変更 */
+    /* ゆらゆらアニメーションの設定 */
     position: relative; 
-    
-    /* ★ 2. アニメーションを適用 */
     animation: waveFloat 2.5s ease-in-out infinite; 
 }
 
@@ -99,32 +112,87 @@ h2 {
     color: #e0e0e0; 
 }
 
+/* マウスを乗せた時の動き */
 .nav-button:hover {
-    /* 色と影を変更 */
     background: rgba(255, 255, 255, 0.2);
     border-color: rgba(255, 255, 255, 0.4);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); 
     z-index: 10;
-    
-    /* ★ 3. ホバー時に拡大 (transform) を追加 */
-    transform: scale(1.05);
-    /* (animation-play-state: paused; は削除) */
+    transform: scale(1.05); /* 少し拡大 */
 }
 
-/* --- 各時代のボタンの色分け (ガラス風) --- */
+/* =========================================
+   ★サイズ調整用クラス (ゲームと記録用)
+   ========================================= */
+.small-height-btn {
+    height: 90px;        /* 高さを強制的に小さくする */
+    padding: 15px 25px; /* 余白を少し減らす */
+    
+    /* 文字を縦方向の中央に揃える */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-/* 近代 */
+/* 小さいボタン内の文字サイズ調整 */
+.small-height-btn h3 {
+    font-size: 1.4em;
+    margin-bottom: 5px;
+}
+.small-height-btn p {
+    font-size: 0.9em;
+}
+
+
+/* =========================================
+   各ボタンの色設定 (ID指定)
+   ========================================= */
+
+/* --- 近代 (青系) --- */
 #era-modern-btn {
     background: rgba(0, 123, 255, 0.15);
     border-color: rgba(0, 123, 255, 0.3);
-    animation-delay: 0.1s; /* タイミングをずらす */
+    animation-delay: 0.1s;
 }
 #era-modern-btn:hover {
     background: rgba(0, 123, 255, 0.3);
     border-color: rgba(0, 123, 255, 0.5);
 }
 
-/* 準備中のボタン */
+/* --- 索引 (白/グレー系) --- */
+#index-button {
+    background: rgba(248, 249, 250, 0.15); 
+    border-color: rgba(248, 249, 250, 0.3);
+    animation-delay: 0.2s;
+}
+#index-button:hover {
+    background: rgba(248, 249, 250, 0.3);
+    border-color: rgba(248, 249, 250, 0.5);
+}
+
+/* --- ★ゲーム (緑系) --- */
+#game-btn {
+    background: rgba(40, 167, 69, 0.15);
+    border-color: rgba(40, 167, 69, 0.3);
+    animation-delay: 0.5s;
+}
+#game-btn:hover {
+    background: rgba(40, 167, 69, 0.3);
+    border-color: rgba(40, 167, 69, 0.5);
+}
+
+/* --- ★学習の記録 (黄色/ゴールド系) --- */
+#achievements-btn {
+    background: rgba(255, 193, 7, 0.15); 
+    border-color: rgba(255, 193, 7, 0.4);
+    animation-delay: 0.6s;
+}
+#achievements-btn:hover {
+    background: rgba(255, 193, 7, 0.3); 
+    border-color: rgba(255, 193, 7, 0.6);
+}
+
+/* --- 準備中 (グレー・クリック不可) --- */
 .era-ancient, .era-medieval, .era-early-modern, .era-contemporary {
     background: rgba(200, 200, 200, 0.1);
     border-color: rgba(200, 200, 200, 0.2);
@@ -135,85 +203,42 @@ h2 {
 .era-medieval:hover, 
 .era-early-modern:hover, 
 .era-contemporary:hover {
+    /* 準備中は色を変えず拡大もしない */
     background: rgba(200, 200, 200, 0.1);
     border-color: rgba(200, 200, 200, 0.2);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transform: none; /* 準備中ボタンは拡大しない */
+    transform: none; 
 }
 
-/* 索引 */
-#index-button {
-    background: rgba(248, 249, 250, 0.15); 
-    border-color: rgba(248, 249, 250, 0.3);
-    animation-delay: 0.2s; /* タイミングをずらす */
-}
-#index-button:hover {
-    background: rgba(248, 249, 250, 0.3);
-    border-color: rgba(248, 249, 250, 0.5);
+
+/* =========================================
+   アニメーション定義
+   ========================================= */
+@keyframes waveFloat {
+    0% { top: 0px; }
+    50% { top: -6px; }
+    100% { top: 0px; }
 }
 
-/* タイミングずらし (任意) */
+/* アニメーションのタイミングをずらす設定 */
 #era-ancient-btn { animation-delay: 0.3s; }
 #era-medieval-btn { animation-delay: 0.1s; }
 #era-early-modern-btn { animation-delay: 0.4s; }
 #era-contemporary-btn { animation-delay: 0.3s; }
 
-
-/* ★★★ 以下をファイルの一番最後に追加 ★★★ */
-/* 上下に揺れるアニメーションの定義 */
-/* ★ transform から top に変更 ★ */
-@keyframes waveFloat {
-    0% {
-        top: 0px;
+/* =========================================
+   ★スマホ向け調整 (画面幅が狭いとき)
+   ========================================= */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.4em; /* タイトルを少し小さく */
     }
-    50% {
-        top: -6px; /* 6px上に移動 */
+    main {
+        padding: 15px; /* 余白を調整 */
     }
-    100% {
-        top: 0px;
+    .nav-button {
+        height: auto;       /* 高さを固定せず中身に合わせる */
+        min-height: 120px;  /* 最低限の高さは確保 */
+        margin-bottom: 0;   /* 余計な余白削除 */
     }
 }
-.game-link-container-header {
-    text-align: center;
-    margin-top: 15px;
-    padding-bottom: 10px;
-}
-
-.nav-button-header {
-    display: inline-block;
-    padding: 12px 28px; /* サイズ調整 */
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.2s ease;
-
-    /* --- ↓↓↓ ここからが「ガラス」のコマンド ↓↓↓ --- */
-
-    /* 1. 背景: 半透明の白 */
-    background: rgba(255, 255, 255, 0.1);
-
-    /* 2. ぼかし: これが「すりガラス」の核です */
-    backdrop-filter: blur(10px);
-    /* (↓ Safari/Chrome用の互換性コード) */
-    -webkit-backdrop-filter: blur(10px); 
-
-    /* 3. 形状: 角丸 */
-    border-radius: 15px;
-
-    /* 4. 縁取り: 光沢を出すためのうっすら白い線 */
-    border: 1px solid rgba(255, 255, 255, 0.2);
-
-    /* 5. 影: 浮いているように見せる */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-
-    /* 6. 文字色: 白（暗い背景で見えるように） */
-    color: #ffffff;
-}
-
-/* マウスを乗せた時の動作 */
-.nav-button-header:hover {
-    background: rgba(255, 255, 255, 0.2); /* 少し濃くする */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    transform: translateY(-2px);
-    transform: scale(1.1); /* 1.1倍の大きさに拡大 */
-}
-/* ★★★ CSS置き換えここまで ★★★ */

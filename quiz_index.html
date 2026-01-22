@@ -5,110 +5,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>クイズゲームセンター</title>
     <style>
+        /* ★ここがポイント！ 
+         背景の色を動かすアニメーションの設定
+        */
+        @keyframes gradient-bg {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
         body {
-            font-family: sans-serif;
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
             text-align: center;
-            background: linear-gradient(to bottom, #e0f7fa, #f0f4f8);
+            
+            /* 1. 変化させたい色を全部並べます（左から順に） */
+            /* ピンク、紫、青、エメラルドグリーン */
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            
+            /* 2. 背景のサイズを画面よりずっと大きくします */
+            background-size: 400% 400%;
+            
+            /* 3. アニメーションを実行！ 15秒かけてゆっくり動かします */
+            animation: gradient-bg 15s ease infinite;
+
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            margin: 0;
             padding: 20px;
-            box-sizing: border-box; 
-        }
-        #home-container {
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            min-width: 300px;
-        }
-        h1 {
+            box-sizing: border-box;
             color: #333;
-            margin-bottom: 20px;
         }
+
+        #home-container {
+            background-color: rgba(255, 255, 255, 0.85); /* ほんの少し透けさせる */
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            min-width: 320px;
+            max-width: 450px;
+            width: 100%;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        h1 {
+            color: #4a4a4a;
+            margin-bottom: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
         p {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 30px;
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 35px;
         }
+
         .start-button {
             display: block;
-            font-size: 20px;
-            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 18px 20px;
             cursor: pointer;
-            background-color: #007bff;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
             text-decoration: none;
-            transition: background-color 0.3s;
-            margin-bottom: 15px; 
-            min-width: 250px;
+            margin-bottom: 20px; 
+            width: 100%;
             box-sizing: border-box;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
         }
+
         .start-button:hover {
-            background-color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
         }
-        .button-flag {
-            background-color: #17a2b8;
+
+        .start-button:active {
+            transform: translateY(-1px);
         }
-        .button-flag:hover {
-            background-color: #117a8b;
-        }
-        
-        /* ★「干支関連」ボタンの色 (緑色) */
-        .button-eto {
-            background-color: #28a745; 
-        }
-        .button-eto:hover {
-            background-color: #218838;
-        }
+
+        /* 各ボタンの色 */
+        .button-kanji { background: linear-gradient(45deg, #007bff, #00c6ff); }
+        .button-flag { background: linear-gradient(45deg, #17a2b8, #36d1dc); }
+        .button-eto { background: linear-gradient(45deg, #28a745, #84fab0); }
         
         #back-to-home-float-btn {
-    /* 1. 位置の固定 */
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000; /* 他
-の要素より手前に表示 */
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(45deg, #ff9966, #ff5e62);
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            font-size: 12px;
+            font-weight: bold;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
 
-    /* 2. 見た目 */
-    display: block;
-    width: 70px;
-    height: 70px;
-    background-color: #007bff; /* ホームボタンの標準色 (青) */
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 50%; /* 円形にする */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    
-    /* 3. 中の文字 (🏠 と "ホームへ") の調整 */
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 1.3;
-    padding-top: 15px; /* 文字を中央に寄せる */
-    box-sizing: border-box; /* paddingを含めてサイズ計算 */
+        #back-to-home-float-btn span {
+            font-size: 24px;
+            margin-bottom: 2px;
+            display: block;
+        }
 
-    /* 4. アニメーション */
-    transition: background-color 0.2s, transform 0.2s;
-}
-
-/* マウスを乗せた時 */
-#back-to-home-float-btn:hover {
-    background-color: #0056b3; /* 少し濃い青 */
-    transform: scale(1.05); /* 少し大きく */
-}
+        #back-to-home-float-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 20px rgba(255, 94, 98, 0.6);
+        }
     </style>
 </head>
 <body>
 
     <div id="home-container">
-        <h1>クイズゲームセンター</h1>
-        <p>遊ぶクイズを選んでね！</p>
+        <h1>🎮 クイズゲームセンター</h1>
+        <p>遊びたいモードを選んでね！</p>
         
-        <a href="home_kanji.html" class="start-button">
+        <a href="home_kanji.html" class="start-button button-kanji">
             漢字一文字クイズ
         </a>
         <a href="quiz_flag.html" class="start-button button-flag">
@@ -120,7 +155,10 @@
         </a>
         
     </div>
-<a href="index.html" id="back-to-home-float-btn">🏠<br>ホームへ</a>
+
+    <a href="index.html" id="back-to-home-float-btn">
+        <span>🏠</span>ホームへ
+    </a>
 
 </body>
 </html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学習アチーブメント一覧</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="achievements.css">
+</head>
+<body>
+
+    <header>
+        <h1>🏆 学習アチーブメント</h1>
+    </header>
+
+    <main>
+        <nav class="breadcrumb-nav">
+            <a href="index.html">🏠 ホームへ戻る</a>
+        </nav>
+
+        <section class="content-block">
+            <h2>獲得した知識の証</h2>
+            <p>学習ページで満点を取ったり、隠し要素を見つけるとバッジが追加されます。</p>
+            
+            <div class="achievements-grid">
+                
+                <div class="achievement-card locked" id="item-learning-prep">
+                    <div class="icon">✒️</div> 
+                    <div class="details">
+                        <h3>学びへの第一歩</h3>
+                        <p>机の上の万年筆のキャップを初めて開けた。</p>
+                        <span class="status-badge">未獲得</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card locked" id="item-colonial">
+                    <div class="icon">🌍</div>
+                    <div class="details">
+                        <h3>植民地支配の知識</h3>
+                        <p>列強による支配とアジアの変容を理解した証。</p>
+                        <span class="status-badge">未獲得</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card locked" id="item-asia-awakening">
+                    <div class="icon">⚔️</div>
+                    <div class="details">
+                        <h3>アジアの覚醒</h3>
+                        <p>辛亥革命やロシア革命など、激動の時代を理解した証。</p>
+                        <span class="status-badge">未獲得</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card locked" id="item-mass-society">
+                    <div class="icon">📻</div>
+                    <div class="details">
+                        <h3>大衆社会の知識</h3>
+                        <p>大衆社会の形成と総力戦、女性の社会進出について理解した証。</p>
+                        <span class="status-badge">未獲得</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card locked" id="item-ww1">
+                    <div class="icon">🌍</div>
+                    <div class="details">
+                        <h3>第一の世界大戦を知る者</h3>
+                        <p>第一次世界大戦の勃発から終結までの流れを理解した証。</p>
+                        <span class="status-badge">未獲得</span>
+                    </div>
+                </div>
+                <div class="achievement-card locked" id="achv_usa_society_master">
+                    <div class="icon">📻</div>
+                    <div class="details">
+                        <h3>生活の進化</h3>
+                        <p>1920年代アメリカの繁栄と文化をマスターした証</p>
+                        <span class="status-badge">未獲得</span>
+                    </div>
+                </div>
+                <div class="achievement-card locked" id="achv_asia_migration_master">
+                    <div class="icon"> 🌏️</div>
+                    <div class="details">
+                        <h3>アジアの成長と移民</h3>
+                        <p>アジアの経済成長と移民問題を理解した証</p>
+                        <span class="status-badge">未獲得</span>
+                    </div>
+                </div>
+                <div class="achievement-card locked" id="achv_anti_colonial_master">
+    <div class="icon">🚩</div>
+    <div class="details">
+        <h3>民族運動の理解者</h3>
+        <p>アジア・アフリカの独立運動と、中国の統一過程をマスターした証。</p>
+        <span class="status-badge">未獲得</span>
+    </div>
+    </div>
+                <div class="achievement-card locked special-card" id="item-master-collector">
+                    <div class="icon">👑</div>
+                    <div class="details">
+                        <h3>道を征く者</h3>
+                        <p>アチーブメントを合計5個獲得する</p>
+                        
+                        <div class="progress-wrapper">
+                            <div class="progress-text">現在の獲得数: <span id="progress-count">0</span> / 5</div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="progress-fill" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                        <span class="status-badge">未獲得</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <button id="reset-data-btn">⚠️ データをリセットする（テスト用）</button>
+        </div>
+
+    </main>
+    <div id="achievement-box" class="achievement">
+        <div class="icon">👑</div>
+        <div class="text">
+            <span class="title">スペシャル実績解除</span>
+            <span class="title-text">道を征く者</span>
+        </div>
+    </div>
+    <script src="achievements.js"></script>
+    
+</body>
+</html>

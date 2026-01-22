@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>世界史/日本史 学習サイト (ホーム)</title>
+    <title>世界史/日本史 学習サイト</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
     <header>
-        <h1>【世界史/日本史】学習サイト</h1>
+        <div class="header-inner">
+            <h1>🏛️ 世界史/日本史 学習サイト</h1>
+            <p>時代を超えて知識を深めよう</p>
+        </div>
     </header>
 
     <main>
@@ -18,41 +21,70 @@
 
             <nav class="era-navigation">
                 
-                <a href="#" class="nav-button era-ancient" id="era-ancient-btn">
-                    <h3>🏛️ 古代</h3>
-                    <p>（準備中）</p>
+                <a href="#" class="nav-button era-ancient disabled" id="era-ancient-btn">
+                    <div class="card-content">
+                        <h3>🏛️ 古代</h3>
+                        <p>（準備中）</p>
+                    </div>
                 </a>
 
-                <a href="#" class="nav-button era-medieval" id="era-medieval-btn">
-                    <h3>🛡️ 中世</h3>
-                    <p>（準備中）</p>
+                <a href="#" class="nav-button era-medieval disabled" id="era-medieval-btn">
+                    <div class="card-content">
+                        <h3>🛡️ 中世</h3>
+                        <p>（準備中）</p>
+                    </div>
                 </a>
 
-                <a href="#" class="nav-button era-early-modern" id="era-early-modern-btn">
-                    <h3>🏯 近世</h3>
-                    <p>（準備中）</p>
+                <a href="#" class="nav-button era-early-modern disabled" id="era-early-modern-btn">
+                    <div class="card-content">
+                        <h3>🏯 近世</h3>
+                        <p>（準備中）</p>
+                    </div>
                 </a>
                 
                 <a href="history_modern.html" class="nav-button era-modern" id="era-modern-btn">
-                    <h3>🚢 近代</h3>
-                    <p>産業革命、帝国主義、世界大戦など。</p>
+                    <div class="card-content">
+                        <h3>🚢 近代</h3>
+                        <p>産業革命、帝国主義、世界大戦など。</p>
+                        <span class="badge">学習可能</span>
+                    </div>
                 </a>
-                <a href="#" class="nav-button era-contemporary" id="era-contemporary-btn">
-                    <h3>🌍 現代</h3>
-                    <p>（準備中）</p>
+
+                <a href="#" class="nav-button era-contemporary disabled" id="era-contemporary-btn">
+                    <div class="card-content">
+                        <h3>🌍 現代</h3>
+                        <p>（準備中）</p>
+                    </div>
                 </a>
-                <a href="history_index.html" class="nav-button" id="index-button">
-                    <h3>📖 索引 (さくいん)</h3>
-                    <p>登場する重要語句を五十音順で検索します。</p>
+
+                <a href="history_index.html" class="nav-button tool-card" id="index-button">
+                    <div class="card-content">
+                        <h3>📖 索引 (さくいん)</h3>
+                        <p>重要語句を検索</p>
+                    </div>
                 </a>
                 
-        <a href="quiz_index.html" class="nav-button-header" id="game-btn-header">
-            🎮 ゲームで遊ぶ
-        </a>
+                <a href="quiz_index.html" class="nav-button tool-card small-height-btn" id="game-btn">
+                    <div class="card-content">
+                        <h3>🎮 ゲームで遊ぶ</h3>
+                        <p>クイズで腕試し</p>
+                    </div>
+                </a>
+
+                <a href="achievements.html" class="nav-button tool-card small-height-btn" id="achievements-btn">
+                    <div class="card-content">
+                        <h3>🏆 学習の記録</h3>
+                        <p>獲得したバッジを確認</p>
+                    </div>
+                </a>
 
             </nav>
         </section>
     </main>
+
+    <footer>
+        <p>&copy; 2024 History Learning Site</p>
+    </footer>
 
 </body>
 </html>

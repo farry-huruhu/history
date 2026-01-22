@@ -1,0 +1,254 @@
+@charset "UTF-8";
+
+/* =========================================
+   1. サイト全体の基本デザイン
+   ========================================= */
+
+/* 基本的なスタイルリセット */
+body, h1, h2, h3, h4, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    line-height: 1.7;
+    background-color: #2c3e50; /* 濃い背景色 */
+    color: #333;
+    
+    /* ローディング中はスクロールさせない */
+    overflow: hidden; 
+}
+
+/* スクロールを滑らかにする */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ヘッダー */
+header {
+    background-color: #1a1a1a; 
+    color: white;
+    padding: 20px;
+    text-align: center;
+    
+    /* 最初は隠しておく（襖が開くときに表示） */
+    opacity: 0;
+    transition: opacity 1.5s ease 0.5s;
+}
+
+/* ヘッダーの見出しサイズ調整 */
+header h1 {
+    font-size: 1.8em;
+}
+
+/* メインコンテンツのコンテナ */
+main {
+    max-width: 900px;
+    margin: 30px auto; 
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    
+    /* 最初は隠しておく */
+    opacity: 0;
+    transition: opacity 1.5s ease 0.5s;
+}
+
+.content-block {
+    text-align: center;
+}
+
+h2 {
+    border-bottom: 3px solid #0056b3;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+p {
+    margin-bottom: 25px;
+    font-size: 1.1em;
+}
+
+/* --- ナビゲーションボタン（3列グリッド） --- */
+.theme-navigation {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3列 */
+    gap: 25px; /* ボタン間のすき間 */
+    margin-top: 20px;
+}
+
+/* スマホ対応（画面が狭いときは1列にする） */
+@media (max-width: 768px) {
+    .theme-navigation {
+        grid-template-columns: 1fr;
+    }
+}
+
+.nav-button {
+    display: block;
+    padding: 25px;
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.25s ease-out;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+}
+
+.nav-button h3 {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.nav-button p {
+    font-size: 1em;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+/* --- ホバーエフェクト --- */
+
+/* テーマ別 */
+.theme-button {
+    background: linear-gradient(135deg, #fff 0%, #eef7ff 100%);
+    border-color: #007bff;
+}
+.theme-button h3 { color: #0056b3; }
+.theme-button:hover {
+    background: linear-gradient(135deg, #fff 0%, #dcf0ff 100%);
+    border-color: #0056b3;
+    transform: translateY(-5px) scale(1.05) rotate(1deg); 
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25); 
+    z-index: 10;
+}
+
+/* 年表 */
+#timelines-menu-button {
+    background-color: #f0fff0;
+    border-color: #28a745;
+}
+#timelines-menu-button h3 { color: #155724; }
+#timelines-menu-button:hover {
+    background: linear-gradient(135deg, #fff 0%, #e6ffe6 100%);
+    border-color: #1e7e34;
+    transform: translateY(-5px) scale(1.05) rotate(1deg);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+    z-index: 10;
+}
+
+/* 総合問題 */
+#comprehensive-button {
+    background-color: #fff5f5;
+    border-color: #d9534f;
+}
+#comprehensive-button h3 { color: #a94442; }
+#comprehensive-button:hover {
+    background: linear-gradient(135deg, #fff 0%, #ffebec 100%);
+    border-color: #9a3b38;
+    transform: translateY(-5px) scale(1.05) rotate(1deg); 
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+    z-index: 10;
+}
+
+/* トップページへ戻る (パンくずリスト風) */
+.breadcrumb-nav {
+    padding: 0 10px 15px 10px;
+    text-align: left;
+}
+
+.breadcrumb-nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1em;
+    transition: color 0.2s;
+}
+
+.breadcrumb-nav a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* =========================================
+   2. 襖（Fusuma）ローディング用CSS
+   ========================================= */
+#fusuma-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999; /* 最前面 */
+    pointer-events: none; /* クリック透過 */
+}
+
+.door {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    
+    /* 【注意】画像指定はJSで行うためここでは削除しています */
+    /* background-image: url('...'); */
+    
+    background-repeat: no-repeat;
+    background-size: 200% 100%; /* 画像を左右につなげる重要設定 */
+    border-top: 10px solid #222;
+    border-bottom: 10px solid #222;
+    box-sizing: border-box;
+    transition: transform 2.0s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.door-left {
+    left: 0;
+    background-position: 0% center;
+    border-right: 1px solid rgba(0,0,0,0.3);
+}
+
+.door-right {
+    right: 0;
+    background-position: 100% center;
+}
+
+/* 襖の取っ手 */
+.door::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #333 30%, #555 100%);
+    border: 2px solid #888;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    opacity: 0.9;
+}
+.door-left::before { right: 15px; }
+.door-right::before { left: 15px; }
+
+/* ▼▼▼ 開いた後の状態 (.loaded) ▼▼▼ */
+body.loaded .door-left {
+    transform: translateX(-100%);
+}
+body.loaded .door-right {
+    transform: translateX(100%);
+}
+
+/* サイトの中身を表示 */
+body.loaded header, 
+body.loaded main {
+    opacity: 1;
+}
+
+/* スクロール許可 */
+body.loaded {
+    overflow: auto;
+}
